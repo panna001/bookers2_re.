@@ -1,4 +1,5 @@
 <h1>Editing Book</h1>
+<%= render "layouts/errors", model:@book %>
 <%= form_with model: @book, lacal: true do |f| %>
   <%= f.label :title, "Title" %>
   <%= f.text_field :title %>
