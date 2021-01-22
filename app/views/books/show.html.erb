@@ -1,2 +1,18 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<%= render "layouts/user_info", model:@user %>
+<%= render "layouts/new_book", model:@book %>
+
+<h1>Book detail</h1>
+<table>
+  <tr>
+    <td>
+      <%= attachment_image_tag @book_detail.user, :profile_image, :fill, 40, 40, format: "jpg", follback: "no-image.jpg", size: "40x40" %>
+      <%= link_to @book_detail.user.name, user_path(@book_detail.user) %>
+    </td>
+    <td><%= link_to @book_detail.title %></td>
+    <td><%= @book_detail.body %></td>
+    <% if @book_detail.user == current_user %>
+      <td><%= link_to "Edit", edit_user_path(@book_detail.user) %></td>
+      <td><%= link_to "Destroy", user_path(@book_detail.user), method: :delete %></td>
+    <% end %>
+  </tr>
+</table>
