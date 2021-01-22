@@ -11,58 +11,67 @@
 
   <body>
     <header>
-      <div>Bookers</div>
-      <div>
-        <nav>
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="fas fa-home"></i>Home
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+        <div class="container">
+          <div class="navbar-brond">
+            <%= link_to "Bookers", root_path, class: "nav-link text-white" %>
+          </div>
+          <div>
+            <ul class="navbar-nav">
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to user_path(current_user), class: "nav-link text-white" do %>
+                    <i class="fas fa-home"></i> Home
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to users_path, class: "nav-link text-white" do %>
+                    <i class="fas fa-users"></i> Users
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to books_path, class: "nav-link text-white" do %>
+                    <i class="fas fa-book-open"></i> Books
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-white" do %>
+                    <i class="fas fa-sign-out-alt"></i> logout
+                  <% end %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to root_path, class: "nav-link text-white" do %>
+                    <i class="fas fa-home"></i> Home
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to about_path, class: "nav-link text-white" do %>
+                    <i class="fas fa-link"></i> About
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_user_registration_path, class: "nav-link text-white" do %>
+                    <i class="fas fa-user-plus"></i> Sign up
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+                    <i class="fas fa-sign-in-alt"></i> login
+                  <% end %>
+                </li>
               <% end %>
-            </li>
-            <li>
-              <%= link_to users_path do %>
-                <i class="fas fa-users"></i>Users
-              <% end %>
-            </li>
-            <li>
-              <%= link_to books_path do %>
-                <i class="fas fa-book-open"></i>Books
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i>logout
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to root_path do %>
-                <i class="fas fa-home"></i>Home
-              <% end %>
-            </li>
-            <li>
-              <%= link_to about_path do %>
-                <i class="fas fa-link"></i>About
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_user_registration_path do %>
-                <i class="fas fa-user-plus"></i>Sign up
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_user_session_path do %>
-                <i class="fas fa-sign-in-alt"></i>login
-              <% end %>
-            </li>
-          <% end %>
-        </nav>
-      </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-    <% if notice %>
+    <p class="text-success mb-3">
       <%= notice %>
-    <% end %>
+    </p>
     <%= yield %>
+    <footer class="mt-5">
+      <p class="text-center">CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>
