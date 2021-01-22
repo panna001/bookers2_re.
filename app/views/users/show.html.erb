@@ -1,0 +1,40 @@
+<h1>Users info</h1>
+<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: "jpg", rollback: "no-image.jpg", size: "60x60" %>
+<table>
+  <tr>
+    <th>name</th>
+    <td><%= @user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <td><%= @user.introduction %></td>
+  </tr>
+</table>
+
+<%= link_to edit_user_path(@user) do %>
+  <i class="fas fa-user-cog"></i>
+<% end %>
+
+<h1>New book</h1>
+<%= form_with model: @book, local: true do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+  <%= f.label :body, "Opinion" %>
+  <%= f.text_area :body %>
+  <%= f.submit "Create Book" %>
+<% end %>
+
+
+<h1>Books</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Opinion</th>
+  </tr>
+  <tr>
+    <% @books.each do |book| %>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+    <% end %>
+  </tr>
+</table>
