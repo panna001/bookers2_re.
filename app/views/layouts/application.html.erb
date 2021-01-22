@@ -60,6 +60,9 @@
         </nav>
       </div>
     </header>
+    <% if notice %>
+      <%= notice %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
