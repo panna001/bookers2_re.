@@ -1,7 +1,7 @@
 <%= render "layouts/errors", model:@book %>
 <h1>User info</h1>
-<%= attachment_image_tag model, :profile_image, :fill, 60, 60, format: "jpg", rollback: "no-image.jpg", size: "60x60" %>
-<table>
+<%= attachment_image_tag model, :profile_image, :fill, 100, 100, format: "jpg", fallback: "no_image.jpg", size: "100x100" %>
+<table class="table">
   <tr>
     <th>name</th>
     <td><%= model.name %></th>
@@ -12,6 +12,20 @@
   </tr>
 </table>
 
-<%= link_to edit_user_path(model) do %>
+<%= link_to edit_user_path(model), class: "btn btn-sm btn-outline-secondary btn-block" do %>
   <i class="fas fa-user-cog"></i>
 <% end %>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-8 offset-md-1">
+
+    </div>
+  </div>
+</div>
