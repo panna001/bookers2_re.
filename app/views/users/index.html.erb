@@ -1,2 +1,17 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<%= render "layouts/user_info", model:@user %>
+<%= render "layouts/new_book", model:@book %><h1>Users</h1>
+
+<table>
+  <tr>
+    <th>image</th>
+    <th>name</th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: "jpg", follback: "no-image.jpg", size: "40x40" %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show", user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>
