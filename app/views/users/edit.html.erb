@@ -1,11 +1,19 @@
-<h1>User info</h1>
-<%= render "layouts/errors", model:@user %>
-<%= form_with model: @user, lacal: true do |f| %>
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %>
-  <%= f.label :profile_image, "Image" %>
-  <%= f.attachment_field :profile_image %>
-  <%= f.label :introduction, "Introduction" %>
-  <%= f.text_field :introduction %>
-  <%= f.submit "Update User" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h1>User info</h1>
+      <%= render "layouts/errors", model:@user %>
+      <div class="form-group">
+        <%= form_with model: @user, local: true do |f| %>
+          <%= f.label :name, "Name" %>
+          <%= f.text_field :name, class: "form-control mb-3" %>
+          <%= f.label :profile_image, "Image" %>
+          <%= f.attachment_field :profile_image, class: "d-block mb-3" %>
+          <%= f.label :introduction, "Introduction" %>
+          <%= f.text_field :introduction, class: "form-control mb-3" %>
+          <%= f.submit "Update User", class: "btn btn-secondary" %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>

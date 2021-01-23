@@ -1,9 +1,22 @@
-<h1>Editing Book</h1>
-<%= render "layouts/errors", model:@book %>
-<%= form_with model: @book, lacal: true do |f| %>
-  <%= f.label :title, "Title" %>
-  <%= f.text_field :title %>
-  <%= f.label :body, "Opinion" %>
-  <%= f.text_field :body %>
-  <%= f.submit "Update Book" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+        <h1>Editing Book</h1>
+        <div class="form-group">
+          <%= render "layouts/errors", model:@book %>
+          <%= form_with model: @book, local: true do |f| %>
+            <%= f.label :title, "Title" %>
+            <%= f.text_field :title, class: "form-control mb-3" %>
+            <%= f.label :body, "Opinion" %>
+            <%= f.text_field :body, class: "form-control mb-3" %>
+            <%= f.submit "Update Book", class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to "Show", book_path(@book) %>
+          <span>|</span>
+          <%= link_to "Back", books_path %>
+        </div>
+    </div>
+  </div>
+</div>
